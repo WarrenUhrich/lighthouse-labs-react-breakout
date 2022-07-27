@@ -1,9 +1,11 @@
 import './App.css';
+import AnimeList from './components/AnimeList';
 
 function App() {
   return (
     <div className="App">
-      Hello, World!
+      <h1>React Breakout</h1>
+      <AnimeList  />
     </div>
   );
 }
