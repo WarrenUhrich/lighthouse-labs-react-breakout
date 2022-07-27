@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import useAxios from '../hooks/useAxios';
 
 export default function AnimeList ({heading}) {
-    const [films, setFilms] = useState([]);
+    const [films] = useAxios('https://ghibliapi.herokuapp.com/films/');
 
-    useEffect(() => {
-        axios.get('https://ghibliapi.herokuapp.com/films/')
-            .then((response) => {
-                console.log(response);
-                setFilms(response.data);
-            });
-    }, []);
+    const listOfFilms = films && films.map((film) => <></>);
 
     return(
         <section>
             <h2>{heading || 'Anime List'}</h2>
             <ul>
-
+                {listOfFilms}
             </ul>
         </section>
     );    
